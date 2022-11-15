@@ -1,0 +1,63 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="form-group col-md-6">
+    <label>Product Name : </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      formControlName="name"
+      class="form-control"
+      placeholder="Input Name"
+    />
+  </div>
+  <div class="form-group col-md-6">
+    <label>Image Tag : </label>
+    <input
+      type="text"
+      id="image"
+      name="image"
+      formControlName="image"
+      class="form-control"
+      placeholder="Input Image Tag"
+    />
+  </div>
+  <div class="form-group col-md-6">
+    <label>Price : </label>
+    <input
+      type="number"
+      id="price"
+      name="price"
+      formControlName="price"
+      class="form-control"
+      placeholder="Input price"
+    />
+  </div>
+  <div class="form-group col-md-6">
+    <label>Category</label>
+    <select
+      id="categoryId"
+      name="categoryId"
+      formControlName="categoryId"
+      class="form-control"
+    >
+      <option *ngFor="let elemen of categories" value="{{ elemen.id }}">
+        {{ elemen.name }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Description : </label>
+    <input
+      type="text"
+      id="description"
+      name="description"
+      formControlName="description"
+      class="form-control"
+      placeholder="Input Description"
+    />
+  </div>
+  <div class="form-group col-md-6">
+    <button mat-flat-button color="primary" type="submit" class="btn btn-primary col-md-3 mr-5">Save</button>
+    <button mat-flat-button color="warn" (click)="onDiscard()" class="btn btn-primary col-md-3 mr-3">Discard</button>
+  </div>
+</form>

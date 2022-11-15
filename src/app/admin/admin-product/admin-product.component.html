@@ -1,0 +1,28 @@
+
+<button mat-flat-button color="accent" routerLink="form" class="mb-4 mt-4 ml-3">Create New Product</button>
+<table class="table table-dark ml-3">
+  <thead>
+    <tr>
+      <th scope="col">Product Id</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">Price</th>
+      <th scope="col">Description</th>
+      <th scope="col">Category</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let elemen of products">
+      <th scope="row">{{ elemen.id }}</th>
+      <td>{{ elemen.name }}</td>
+      <td>{{ elemen.image }}</td>
+      <td>{{ elemen.price }}</td>
+      <td>{{ elemen.description }}</td>
+      <td>{{ getCategoryNameById(elemen.id) }}</td>
+      <td><button mat-flat-button color="white" (click)="onEdit(elemen.id)">Edit</button></td>
+      <td><button mat-flat-button color="warn" (click)="deleteProduct(elemen.id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

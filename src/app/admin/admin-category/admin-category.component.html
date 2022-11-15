@@ -1,0 +1,22 @@
+
+<button mat-flat-button color="accent" routerLink="form" class="mb-4 mt-4 ml-3">Create New Category</button>
+<table class="table table-dark ml-3">
+  <thead>
+    <tr>
+      <th scope="col">Category Id</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Description</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let elemen of categories">
+      <th scope="row">{{ elemen.id }}</th>
+      <td>{{ elemen.name }}</td>
+      <td>{{ elemen.description }}</td>
+      <td><button mat-flat-button color="white">Edit</button></td>
+      <td><button mat-flat-button color="warn" (click)="deteleCategoryById(elemen.id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

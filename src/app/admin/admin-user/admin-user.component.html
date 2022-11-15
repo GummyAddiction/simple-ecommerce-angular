@@ -1,0 +1,22 @@
+
+<button mat-flat-button color="accent" routerLink="form" class="mb-4 mt-4 ml-3">Create New User</button>
+<table class="table table-dark ml-3">
+  <thead>
+    <tr>
+      <th scope="col">User Id</th>
+      <th scope="col">Username</th>
+      <th scope="col">Role</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let elemen of users">
+      <th scope="row">{{ elemen.id }}</th>
+      <td>{{ elemen.username }}</td>
+      <td>{{ elemen.role }}</td>
+      <td><button mat-flat-button color="white">Edit</button></td>
+      <td><button mat-flat-button color="warn" (click)="deleteUserById(elemen.id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

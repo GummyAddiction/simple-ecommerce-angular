@@ -1,24 +1,63 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      routerLink="/home"
+    >
       <mat-icon>home</mat-icon>
     </button>
     <span>simple e-commerce</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon cart" aria-label="Example icon-button with cart icon">
+
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon> local_mall</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let elemen of categories">
+        {{ elemen.name }}
+      </button>
+      <button mat-menu-item routerLink="/shop">All Products</button>
+    </mat-menu>
+    <button
+      mat-icon-button
+      class="example-icon cart"
+      aria-label="Example icon-button with cart icon"
+      routerLink="cart"
+    >
       <mat-icon>shopping_cart</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
       <mat-icon>search</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      [matMenuTriggerFor]="profileMenu"
+    >
       <mat-icon>person</mat-icon>
     </button>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item>Logout</button>
+    </mat-menu>
+    <button
+      mat-icon-button
+      class="example-icon setting"
+      aria-label="Example icon-button with setting icon"
+      [matMenuTriggerFor]="settingMenu"
+    >
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #settingMenu="matMenu">
+      <button mat-menu-item routerLink="admin/user">User Managemet</button>
+      <button mat-menu-item routerLink="admin/product">Product Management</button>
+      <button mat-menu-item routerLink="admin/category">Category Management</button>
+    </mat-menu>
   </mat-toolbar-row>
-  <mat-toolbar-row>
-  
-    <p>category menu here</p>
-  </mat-toolbar-row>
-  </mat-toolbar>
-
-  
+</mat-toolbar>

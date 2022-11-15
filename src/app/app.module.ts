@@ -17,6 +17,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import {MatMenuModule} from '@angular/material/menu';
+import{ BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AdminComponent } from './admin/admin.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminUserComponent } from './admin/admin-user/admin-user.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { UserFormComponent } from './admin/user-form/user-form.component';
+import { CategoryFormComponent } from './admin/category-form/category-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +38,14 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     CartComponent,
     MenuComponent,
+    ProductDetailComponent,
+    AdminComponent,
+    AdminProductComponent,
+    AdminCategoryComponent,
+    AdminUserComponent,
+    ProductFormComponent,
+    UserFormComponent,
+    CategoryFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +58,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatCardModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
