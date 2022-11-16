@@ -7,7 +7,7 @@ import {
   HttpClient,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Product } from '../model/product';
+import { Product, ProductModel } from '../model/product';
 import { Category } from '../model/category';
 import { User } from '../model/user';
 
@@ -29,9 +29,9 @@ export class EcommerceService {
   constructor(private httpClient: HttpClient) {}
 
   //Get All REST
-  getAllProducts(): Observable<Product[]> {
+  getAllProducts(): Observable<ProductModel[]> {
     return this.httpClient
-      .get<Product[]>(`${this.baseUrl}/product/list`)
+      .get<ProductModel[]>(`${this.baseUrl}/product/list`)
       .pipe(catchError(this.errorHandler));
   }
 

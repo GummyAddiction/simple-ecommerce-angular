@@ -14,13 +14,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let elemen of products">
+    <tr *ngFor="let elemen of productModel">
       <th scope="row">{{ elemen.id }}</th>
       <td>{{ elemen.name }}</td>
       <td>{{ elemen.image }}</td>
       <td>{{ elemen.price }}</td>
       <td>{{ elemen.description }}</td>
-      <td>{{ getCategoryNameById(elemen.id) }}</td>
+      <td>{{ elemen.categoryName }}</td>
       <td><button mat-flat-button color="white" (click)="onEdit(elemen.id)">Edit</button></td>
       <td><button mat-flat-button color="warn" (click)="deleteProduct(elemen.id)">Delete</button></td>
     </tr>

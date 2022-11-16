@@ -34,11 +34,15 @@ export class UserFormComponent implements OnInit {
 
   onSubmit():void{
     this.addUser();
-    this.router.navigate(['admin/user']);
+    this.router.navigate(['admin/user']).then(() => {
+      window.location.reload();
+    });
   }
 
   onDiscard():void{
-    this.router.navigate(['admin/user']);
+    this.router.navigate(['admin/user']).then(() => {
+      window.location.reload();
+    });
   }
 
 }

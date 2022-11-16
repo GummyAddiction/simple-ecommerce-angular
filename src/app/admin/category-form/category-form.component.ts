@@ -35,11 +35,15 @@ export class CategoryFormComponent implements OnInit {
 
   onSubmit():void{
     this.addCategory();
-    this.router.navigate(['admin/category'])
+    this.router.navigate(['admin/category']).then(() => {
+      window.location.reload();
+    });
   }
 
   onDiscard():void{
-    this.router.navigate(['admin/category'])
+    this.router.navigate(['admin/category']).then(() => {
+      window.location.reload();
+    });
   }
 
 

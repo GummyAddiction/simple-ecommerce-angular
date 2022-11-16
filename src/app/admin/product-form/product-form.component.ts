@@ -17,7 +17,7 @@ export class ProductFormComponent implements OnInit {
 
   public productForm = new FormGroup({
     name: new FormControl(),
-    categoryId: new FormControl(),
+    category_id: new FormControl(),
     image: new FormControl(),
     price: new FormControl(),
     description: new FormControl(),
@@ -56,11 +56,15 @@ export class ProductFormComponent implements OnInit {
   onSubmit() {
     console.log(this.productForm.value);
     this.addProduct();
-    this.router.navigate(['admin/product'])
+    this.router.navigate(['admin/product']).then(() => {
+      window.location.reload();
+    });
   }
 
   onDiscard():void{
-    this.router.navigate(['admin/product'])
+    this.router.navigate(['admin/product']).then(() => {
+      window.location.reload();
+    });
   }
 
 
@@ -73,7 +77,7 @@ export class ProductFormComponent implements OnInit {
         this.productForm.setValue(
           {
             name: this.product.name,
-            categoryId: this.product.categoryId,
+            category_id: this.product.category_id,
             image: this.product.image,
             price: this.product.price,
             description: this.product.description
