@@ -1,1 +1,28 @@
-<p>cart works!</p>
+
+<table class="table table-dark ml-3 mb-4 mt-4 ">
+  <thead>
+    <tr>
+      <th scope="col">Product Name</th>
+      <th scope="col">Image </th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let elemen of cart">
+      <th>{{ elemen.productName }}</th>
+      <td>{{ elemen.productImage }}</td>
+      <td>{{ elemen.productPrice }}</td>
+      <td>{{ elemen.quantity }}</td>
+      <td>{{ elemen.total | currency: 'IDR ' }}</td>
+      <td><button mat-flat-button color="warn" (click)="deleteItem(elemen.productId)">Delete</button></td>
+    </tr>
+    <tr>
+        <td colspan="3"></td>
+        <td><b>Grand Total</b></td>
+        <td><b>{{grandTotal | currency:'IDR '}}</b></td>
+    </tr>
+  </tbody>
+</table>

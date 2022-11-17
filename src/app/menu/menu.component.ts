@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from '../model/category';
 import { EcommerceService } from '../service/ecommerce.service';
 
@@ -13,7 +14,8 @@ export class MenuComponent implements OnInit {
   public categories:Category[]=[];
 
   constructor(
-    private ecommerceService:EcommerceService
+    private ecommerceService:EcommerceService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -34,5 +36,9 @@ export class MenuComponent implements OnInit {
 
   shopClick():void{
     console.log('shop button clicked')
+  }
+
+  categoryClick(id:number){
+    this.router.navigate(['/shop', id])
   }
 }

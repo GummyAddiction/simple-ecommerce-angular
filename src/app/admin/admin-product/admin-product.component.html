@@ -9,6 +9,7 @@
       <th scope="col">Price</th>
       <th scope="col">Description</th>
       <th scope="col">Category</th>
+      <th scope="col">Category Id</th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
@@ -21,6 +22,7 @@
       <td>{{ elemen.price }}</td>
       <td>{{ elemen.description }}</td>
       <td>{{ elemen.categoryName }}</td>
+      <td>{{ elemen.category_id }}</td>
       <td><button mat-flat-button color="white" (click)="onEdit(elemen.id)">Edit</button></td>
       <td><button mat-flat-button color="warn" (click)="deleteProduct(elemen.id)">Delete</button></td>
     </tr>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/model/category';
 import { EcommerceService } from 'src/app/service/ecommerce.service';
 
@@ -12,7 +13,8 @@ export class AdminCategoryComponent implements OnInit {
 
   public categories:Category[]=[]
   constructor(
-    private ecommerceService:EcommerceService
+    private ecommerceService:EcommerceService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +37,12 @@ export class AdminCategoryComponent implements OnInit {
         console.log(result)
       }
     )
-    this.ngOnInit();
+    window.location.reload();
+  }
+
+  onEdit(id:number){
+    console.log('catId Nav : '+id)
+    this.router.navigate(['admin/category/form', id])
   }
 
 }

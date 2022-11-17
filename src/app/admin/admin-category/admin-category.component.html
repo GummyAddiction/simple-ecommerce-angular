@@ -15,7 +15,7 @@
       <th scope="row">{{ elemen.id }}</th>
       <td>{{ elemen.name }}</td>
       <td>{{ elemen.description }}</td>
-      <td><button mat-flat-button color="white">Edit</button></td>
+      <td><button mat-flat-button color="white" (click)="onEdit(elemen.id)">Edit</button></td>
       <td><button mat-flat-button color="warn" (click)="deteleCategoryById(elemen.id)">Delete</button></td>
     </tr>
   </tbody>

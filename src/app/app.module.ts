@@ -29,6 +29,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { UserFormComponent } from './admin/user-form/user-form.component';
 import { CategoryFormComponent } from './admin/category-form/category-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CheckoutComponent } from './checkout/checkout.component';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductFormComponent,
     UserFormComponent,
     CategoryFormComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatMenuModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

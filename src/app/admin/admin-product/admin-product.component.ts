@@ -55,7 +55,7 @@ export class AdminProductComponent implements OnInit {
   }
 
   assignCategoryName(id:number){
-    let name='test'
+    let name=''
     this.categories.forEach(
       elemen => {
         if(elemen.id == id){
@@ -74,8 +74,9 @@ export class AdminProductComponent implements OnInit {
     this.ecommerceService.deleteProduct(id).subscribe(
       result => console.log(result)
     )
-    window.location.reload();
+    
     console.log('delete product')
+    window.location.reload();
   }
 
   onEdit(id:number){

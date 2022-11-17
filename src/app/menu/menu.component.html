@@ -15,7 +15,7 @@
       <mat-icon> local_mall</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item *ngFor="let elemen of categories">
+      <button mat-menu-item *ngFor="let elemen of categories" (click)="categoryClick(elemen.id)">
         {{ elemen.name }}
       </button>
       <button mat-menu-item routerLink="/shop">All Products</button>

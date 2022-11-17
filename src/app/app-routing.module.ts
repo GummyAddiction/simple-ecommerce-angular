@@ -17,7 +17,7 @@ import { UserFormComponent } from './admin/user-form/user-form.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'shop/:id', component: ShopComponent },
+  { path: 'shop/:categoryid', component: ShopComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'detail/:id', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },
@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'admin/category/form', component: CategoryFormComponent },
   { path: 'admin/user/form', component: UserFormComponent },
   { path: 'admin/product/form/:id', component: ProductFormComponent, },
-  { path: 'admin/category/form/:id', component: CategoryFormComponent },
+  { path: 'admin/category/form/:categoryid', component: CategoryFormComponent },
   { path: 'admin/user/form/:id', component: UserFormComponent },
 ];
 
