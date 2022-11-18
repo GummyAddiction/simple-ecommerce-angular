@@ -10,6 +10,7 @@ import { EcommerceService } from '../service/ecommerce.service';
 })
 export class MenuComponent implements OnInit {
   
+  public url!:string
 
   public categories:Category[]=[];
   @Input() badges?:number
@@ -21,6 +22,9 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCategories();
+    this.url = this.router.url
+    console.log('cek url')
+    console.log(this.url);
   }
 
 
