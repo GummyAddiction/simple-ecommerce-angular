@@ -16,7 +16,7 @@ import { UserFormComponent } from './admin/user-form/user-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: ShopComponent },
   { path: 'shop/:categoryid', component: ShopComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'detail/:id', component: ProductDetailComponent },

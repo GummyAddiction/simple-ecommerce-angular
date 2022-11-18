@@ -33,7 +33,7 @@ export class ShopComponent implements OnInit {
       console.log(this.categoryid);
     });
     this.cart = JSON.parse(this.encryptService.getData(this.key));
-    this.encryptService.clearData();
+    //this.encryptService.clearData();
   }
 
   getAllProduct(): void {
@@ -87,47 +87,9 @@ export class ShopComponent implements OnInit {
     this.encryptService.saveData(this.key, JSON.stringify(this.cart))
     console.log('isi sesudah');
     console.log(this.encryptService.getData(this.key));
+  }
 
-    // this.products.forEach((elemen) => {
-    //   if (elemen.id == id) {
-    //     console.log('iterasi produk pertama');
-
-    //     console.log(found);
-    //   }
-    //   this.cart.forEach((cartElemen) => {
-    //     console.log('iterasi cart kedua')
-    //     if ((cartElemen.productId == id)) {
-    //       console.log('masuk cek cart')
-    //       cartElemen.quantity = cartElemen.quantity + 1;
-    //       cartElemen.total = cartElemen.total + cartElemen.productPrice;
-    //     } else {
-    //       console.log('gamasuk dafter cart')
-    //       let cartItem: Cart = {
-    //         productId: elemen.id,
-    //         productName: elemen.name,
-    //         productImage: elemen.image,
-    //         productPrice: elemen.price,
-    //         quantity: 1,
-    //         total: Number(elemen.price) * 1,
-    //       };
-    //       this.cart.push(cartItem);
-    //     }
-    //   });
-    //   if ((this.cart.length == 0)) {
-    //     console.log('masuk if karena ga masuk cart')
-    //     let cartItem: Cart = {
-    //       productId: elemen.id,
-    //       productName: elemen.name,
-    //       productImage: elemen.image,
-    //       productPrice: elemen.price,
-    //       quantity: 1,
-    //       total: Number(elemen.price) * 1,
-    //     };
-    //     this.cart.push(cartItem);
-    //   }
-    //   this.encryptService.saveData(this.key, JSON.stringify(this.cart));
-    //   console.log(this.encryptService.getData(this.key));
-    // }
-    //});
+  onProductClick(id:number){
+    this.router.navigate(['detail', id])
   }
 }

@@ -30,7 +30,8 @@ import { UserFormComponent } from './admin/user-form/user-form.component';
 import { CategoryFormComponent } from './admin/category-form/category-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CheckoutComponent } from './checkout/checkout.component';
-
+import {MatDividerModule} from '@angular/material/divider';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BrowserAnimationsModule,
     MatSidenavModule,
     ReactiveFormsModule,
+    MatDividerModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

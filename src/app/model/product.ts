@@ -27,9 +27,4 @@ export class ProductModel {
   categoryName : string
   )
   {}
-
-
-  setCategoryName(name:string):void{
-    this.categoryName = name;
-  }
 }

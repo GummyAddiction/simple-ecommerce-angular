@@ -1,1 +1,19 @@
-<p>product-detail works!</p>
+<div class="container mb-4 mt-4" style="width: 700px">
+    <div class="row">
+        <div class="col col-sm-4">
+            <img [src]="'../../assets/'+productModel.image+'.png'" style="width: 200px">
+        </div>
+        <div class="col">
+            <div class="row" class="h3">title here</div>
+            <small class="text-muted">Category Here</small>
+            <div class="row" class="h6 mt-4">Desc Here</div>
+            <div class="row" class="h6 mt-4">Price Here</div>
+            <button mat-flat-button (click)="buyProduct(productModel.id)">Buy</button>
+
+
+            buyProduct
+        </div>
+    </div>
+
+
+</div>

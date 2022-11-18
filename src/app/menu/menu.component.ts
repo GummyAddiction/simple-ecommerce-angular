@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from '../model/category';
 import { EcommerceService } from '../service/ecommerce.service';
@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
   
 
   public categories:Category[]=[];
+  @Input() badges?:number
 
   constructor(
     private ecommerceService:EcommerceService,
