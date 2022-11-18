@@ -12,6 +12,7 @@ import { EcommerceService } from '../service/ecommerce.service';
 export class MenuComponent implements OnInit {
   
   public url!:string
+  public role!:string
 
   isLoggedIn$!: Observable<boolean>;
 
@@ -29,6 +30,8 @@ export class MenuComponent implements OnInit {
     this.isLoggedIn$ = this.ecommerceService.isLoggedIn;
     console.log('cek url')
     console.log(this.url);
+    this.role =  String(localStorage.getItem('role'))
+    console.log(this.role)
   }
 
 
@@ -54,5 +57,10 @@ export class MenuComponent implements OnInit {
 
   onLogout() {
     this.ecommerceService.logout();
+  }
+
+
+  onCart(){
+    this.router.navigate(['/cart'])
   }
 }

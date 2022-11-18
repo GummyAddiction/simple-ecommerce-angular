@@ -20,13 +20,15 @@ export class EcommerceService {
   private baseUrl = 'http://localhost:8080';
   private username = 'kresna';
   private password = 'kresna';
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization : 'Basic ' + btoa('kresna:kresna')
-    })
+      Authorization: 'Basic ' + btoa('kresna:kresna'),
+    }),
   };
 
   constructor(private httpClient: HttpClient, private router: Router) {}
@@ -70,8 +72,8 @@ export class EcommerceService {
   }
 
   //add REST
-  addProduct(product:any): Observable<any> {
-    console.log('add product service')
+  addProduct(product: any): Observable<any> {
+    console.log('add product service');
     return this.httpClient
       .post<Product>(
         `${this.baseUrl}/product/create`,
@@ -148,10 +150,7 @@ export class EcommerceService {
 
   deleteUser(id: number) {
     return this.httpClient
-      .delete<User>(
-        `${this.baseUrl}/user/delete/${id}`,
-        this.httpOptions
-      )
+      .delete<User>(`${this.baseUrl}/user/delete/${id}`, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
@@ -170,46 +169,50 @@ export class EcommerceService {
   }
 
   //Login
-  login(loginModel?: loginmodel){
-    console.log('login')
-    return this.httpClient
-      .post<Role>(
-        `${this.baseUrl}/login/`,
-        loginModel,
-        this.httpOptions
-      );
+  login(loginModel?: loginmodel) {
+    console.log('login');
+    return this.httpClient.post<Role>(
+      `${this.baseUrl}/login/`,
+      loginModel,
+      this.httpOptions
+    );
   }
 
   //Logout
-  logout(){
+  logout() {
     localStorage.removeItem('username');
     localStorage.removeItem('password');
     localStorage.removeItem('role');
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload();
+    });
   }
 
   //Check Session
-  checkSession(){
+  checkSession() {
     var uname = localStorage.getItem('username');
     var pwd = localStorage.getItem('password');
-    if(uname!=null && pwd!=null){
-      this.login({username: uname, password: pwd}).subscribe(res => {
-        if(res != null){
-          localStorage.setItem('username',this.username);
-          localStorage.setItem('password',this.password);
-          localStorage.setItem('role',res.role);
-        }
-        else{
-          this.logout();
+    if (uname != null && pwd != null) {
+      this.login({ username: uname, password: pwd }).subscribe((res) => {
+        if (res != null) {
+          localStorage.setItem('username', this.username);
+          localStorage.setItem('password', this.password);
+          localStorage.setItem('role', res.role);
+        } else {
+          this.logout()
         }
       });
+    }else if(uname == 'null' || pwd == 'null'){
+      this.logout()
     }
+    
   }
-
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
 
-
-  
+  checkLogin() {
+    return this.router.url;
+  }
 }

@@ -33,6 +33,7 @@ export class ShopComponent implements OnInit {
       console.log(this.categoryid);
     });
     this.cart = JSON.parse(this.encryptService.getData(this.key));
+    this.ecommerceService.checkSession()
     //this.encryptService.clearData();
   }
 

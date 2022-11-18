@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
             value = true
           }
         )
-        this.router.navigate(['']);
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });
       }
       else{
         // console.log(localStorage.getItem('username'));
