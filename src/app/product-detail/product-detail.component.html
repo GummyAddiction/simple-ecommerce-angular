@@ -4,14 +4,11 @@
             <img [src]="'../../assets/'+productModel.image+'.png'" style="width: 200px">
         </div>
         <div class="col">
-            <div class="row" class="h3">title here</div>
-            <small class="text-muted">Category Here</small>
-            <div class="row" class="h6 mt-4">Desc Here</div>
-            <div class="row" class="h6 mt-4">Price Here</div>
-            <button mat-flat-button (click)="buyProduct(productModel.id)">Buy</button>
-
-
-            buyProduct
+            <div class="row" class="h3">{{productModel.name}}</div>
+            <small class="text-muted">{{productModel.categoryName}}</small>
+            <div class="row" class="h6 mt-4">{{productModel.description}}</div>
+            <div class="row" class="h6 mt-4">{{productModel.price | currency:'IDR '}}</div>
+            <button mat-raised-button  (click)="buyProduct(productModel.id)">Buy</button>
         </div>
     </div>
 

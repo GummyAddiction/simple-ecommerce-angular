@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Category } from '../model/category';
 import { EcommerceService } from '../service/ecommerce.service';
 
@@ -12,6 +13,8 @@ export class MenuComponent implements OnInit {
   
   public url!:string
 
+  isLoggedIn$!: Observable<boolean>;
+
   public categories:Category[]=[];
   @Input() badges?:number
 
@@ -23,6 +26,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCategories();
     this.url = this.router.url
+    this.isLoggedIn$ = this.ecommerceService.isLoggedIn;
     console.log('cek url')
     console.log(this.url);
   }
@@ -45,5 +49,10 @@ export class MenuComponent implements OnInit {
 
   categoryClick(id:number){
     this.router.navigate(['/shop', id])
+  }
+
+
+  onLogout() {
+    this.ecommerceService.logout();
   }
 }

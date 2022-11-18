@@ -13,10 +13,11 @@ import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryFormComponent } from './admin/category-form/category-form.component';
 import { UserFormComponent } from './admin/user-form/user-form.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: ShopComponent },
+  { path: 'home', component: ShopComponent, canActivate: [AuthGuardService]},
   { path: 'shop/:categoryid', component: ShopComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'detail/:id', component: ProductDetailComponent },

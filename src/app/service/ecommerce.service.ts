@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import {
@@ -10,6 +10,8 @@ import {
 import { Product, ProductModel } from '../model/product';
 import { Category } from '../model/category';
 import { User } from '../model/user';
+import { loginmodel, Role } from '../model/loginmodel';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +20,7 @@ export class EcommerceService {
   private baseUrl = 'http://localhost:8080';
   private username = 'kresna';
   private password = 'kresna';
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -26,7 +29,7 @@ export class EcommerceService {
     })
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   //Get All REST
   getAllProducts(): Observable<ProductModel[]> {
@@ -165,4 +168,48 @@ export class EcommerceService {
     console.log(errorMessage);
     return throwError(errorMessage);
   }
+
+  //Login
+  login(loginModel?: loginmodel){
+    console.log('login')
+    return this.httpClient
+      .post<Role>(
+        `${this.baseUrl}/login/`,
+        loginModel,
+        this.httpOptions
+      );
+  }
+
+  //Logout
+  logout(){
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+    localStorage.removeItem('role');
+  }
+
+  //Check Session
+  checkSession(){
+    var uname = localStorage.getItem('username');
+    var pwd = localStorage.getItem('password');
+    if(uname!=null && pwd!=null){
+      this.login({username: uname, password: pwd}).subscribe(res => {
+        if(res != null){
+          localStorage.setItem('username',this.username);
+          localStorage.setItem('password',this.password);
+          localStorage.setItem('role',res.role);
+        }
+        else{
+          this.logout();
+        }
+      });
+    }
+  }
+
+
+  get isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
+
+
+  
 }

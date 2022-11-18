@@ -1,29 +1,36 @@
 
-<form class="login-form">
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>User Name</mat-label>
-    <input
-      matInput
-      placeholder="Enter your name"
-      name="usename"
-      [(ngModel)]="username"
-    />
-  </mat-form-field>
-  <br>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Password</mat-label>
-    <input
-      matInput
-      placeholder="Enter your password"
-      value=""
-      name="password"
-      type="password"
-      [(ngModel)]="password"
-    />
-  </mat-form-field>
-  <br>
-  <button mat-raised-button color="primary" (click)="submit()">Login</button>
-  <span *ngIf="show">
-    <button mat-button color="accent">Login success !!</button></span
-  >
-</form>
+
+<div class="signin-content">
+  <mat-card>
+    <mat-card-header class="h3 d-flex justify-content-center">
+      Simple E-Commerce
+    </mat-card-header>
+    <mat-card-content>
+      <p>Please login to continue</p>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="Enter your name"
+          name="usename"
+          [(ngModel)]="username"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="Enter your password"
+          value=""
+          name="password"
+          type="password"
+          [(ngModel)]="password"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="submit()">
+        Login
+      </button>
+      <span *ngIf="show">
+        <button mat-button color="accent">Login success !!</button></span
+      >
+    </mat-card-content>
+  </mat-card>
+</div>
